@@ -1,0 +1,21 @@
+{
+  "name": "moratab",
+  "main": "index.html",
+  "homepage": "https://github.com/shomabegoo/moratab",
+  "authors": [
+    "Milad Khajavi <khajavi@gmail.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.6.3",
+    "jquery": "^3.1.0"
+  }
+}
