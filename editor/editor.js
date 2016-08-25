@@ -860,26 +860,26 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 		$(".wmd-button-row li").addClass("btn");
 
 		// Add customized buttons
-		$("#wmd-bold-button").append($('<span class="glyphicon glyphicon-bold">')).appendTo($('.wmd-buttons .btn-group1'));
-		$("#wmd-italic-button").append($('<span class="glyphicon glyphicon-italic">')).appendTo($('.wmd-buttons .btn-group1'));
+		$("#wmd-bold-button").append($('<span class="fa fa-bold">')).appendTo($('.wmd-buttons .btn-group1'));
+		$("#wmd-italic-button").append($('<span class="fa fa-italic">')).appendTo($('.wmd-buttons .btn-group1'));
 
-		$("#wmd-heading-button").append($('<span class="glyphicon glyphicon-header">')).appendTo($('.wmd-buttons .btn-group2'));
-		$("#wmd-quote-button").append($('<span class="glyphicon glyphicon-comment">')).appendTo($('.wmd-buttons .btn-group2'));
-		$("#wmd-code-button").append($('<span class="glyphicon glyphicon-flash">')).appendTo($('.wmd-buttons .btn-group2'));
+		$("#wmd-heading-button").append($('<span class="fa fa-header">')).appendTo($('.wmd-buttons .btn-group2'));
+		$("#wmd-quote-button").append($('<span class="fa fa-comment">')).appendTo($('.wmd-buttons .btn-group2'));
+		$("#wmd-code-button").append($('<span class="fa fa-flash">')).appendTo($('.wmd-buttons .btn-group2'));
 
-		$("#wmd-ulist-button").append($('<span class="glyphicon glyphicon-align-justify">')).appendTo($('.wmd-buttons .btn-group3'));
-		$("#wmd-olist-button").append($('<span class="glyphicon glyphicon-list">')).appendTo($('.wmd-buttons .btn-group3'));
+		$("#wmd-ulist-button").append($('<span class="fa fa-align-justify">')).appendTo($('.wmd-buttons .btn-group3'));
+		$("#wmd-olist-button").append($('<span class="fa fa-list">')).appendTo($('.wmd-buttons .btn-group3'));
 
-		$("#wmd-link-button").append($('<span class="glyphicon glyphicon-link">')).appendTo($('.wmd-buttons .btn-group4'));
-		$("#wmd-image-button").append($('<span class="glyphicon glyphicon-picture">')).appendTo($('.wmd-buttons .btn-group4'));
-		$("#wmd-hr-button").append($('<span class="glyphicon glyphicon-minus">')).appendTo($('.wmd-buttons .btn-group4'));
-		$("#wmd-help-button").append($('<span class="glyphicon glyphicon-book">')).appendTo($('.wmd-buttons .btn-group4'));
-		$("#wmd-pdf-button").append($('<span class="glyphicon glyphicon-print">')).appendTo($('.wmd-buttons .btn-group4'));
+		$("#wmd-link-button").append($('<span class="fa fa-link">')).appendTo($('.wmd-buttons .btn-group4'));
+		$("#wmd-image-button").append($('<span class="fa fa-image">')).appendTo($('.wmd-buttons .btn-group4'));
+		$("#wmd-hr-button").append($('<span class="fa fa-minus">')).appendTo($('.wmd-buttons .btn-group4'));
+		$("#wmd-help-button").append($('<span class="fa fa-book">')).appendTo($('.wmd-buttons .btn-group4'));
+		$("#wmd-pdf-button").append($('<span class="fa fa-print">')).appendTo($('.wmd-buttons .btn-group4'));
 
 		// $("#wmd-undo-button").append($('<span class="glyphicon glyphicon-arrow-right">')).appendTo($('.wmd-buttons .btn-group5'));
 		// $("#wmd-redo-button").append($('<span class="glyphicon glyphicon-arrow-left">')).appendTo($('.wmd-buttons .btn-group5'));
 
-		$("#wmd-revert-button").append($('<span class="glyphicon glyphicon-floppy-open">')).appendTo($('.wmd-buttons .btn-group6'));
+		$("#wmd-revert-button").append($('<span class="fa fa-floppy-o">')).appendTo($('.wmd-buttons .btn-group6'));
 
 
 		if(!localStorage.moratab) $("#wmd-revert-button").hide();
@@ -951,7 +951,7 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 
 	editor.init();
 	core.initEditor();
-	$('.wmd-buttons').width($(this).width()).affix({offset: $(this).offset().top});
+	// $('.wmd-buttons').width($(this).width()).affix({offset: $(this).offset().top});
 
 	return editor;
 };
