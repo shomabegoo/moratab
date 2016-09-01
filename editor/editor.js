@@ -836,14 +836,17 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 		pagedownEditor.hooks.set("insertLinkDialog", function(callback) {
 			core.insertLinkCallback = callback;
 			$(".modal input[type=text]").val("");
-			$(".modal-insert-link").modal();
+			classie.toggle( $('.hideModalDialog')[0], 'showModalDialog' );
+			// $(".modal-insert-link").modal();
+
 			return true;
 		});
 		// Custom insert image dialog
 		pagedownEditor.hooks.set("insertImageDialog", function(callback) {
 			core.insertLinkCallback = callback;
 			$(".modal input[type=text]").val("");
-			$(".modal-insert-image").modal();
+			classie.toggle( $('.hideModalDialog')[0], 'showModalDialog' );
+			// $(".modal-insert-image").modal();
 			return true;
 		});
 
@@ -937,13 +940,13 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 		'<pre id="wmd-input"><div class="editor-content" contenteditable=true></div></pre>'
 	);
 	$(document.body).append(
-		'<div class="modal fade modal-insert-link"><div class="modal-dialog"><div class="modal-content">'+
+		'<div class="modal fade modal-insert-link modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
 		'<div class="modal-body"><p>آدرس پیوند را اینجا بنویسید:</p><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span><input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder="http://example.com/" /></div></div>'+
 		'<div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-link"data-dismiss="modal">تایید</a></div>'+
 		'</div></div></div>'
 	);
 	$(document.body).append(
-		'<div class="modal fade modal-insert-image modalDialog"><div class="modal-dialog"><div class="modal-content">'+
+		'<div id="imageModal" class="modal fade modal-insert-image modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
 		'<div class="modal-body"><p>تصویر را در سایت دیگری آپلود کنید و آدرس آن را بنویسید:</p><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span><input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder="http://example.com/image.jpg" /></div></div>'+
 		'<div class="modal-footer"><a href="http://dropbox.com" target="_blank" class="btn btn-link pull-left">سایتی برای آپلود تصویر</a><a href="#" class="btn btn-default" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">تایید</a></div>'+
 		'</div></div></div>'
