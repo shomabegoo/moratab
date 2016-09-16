@@ -836,17 +836,14 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 		pagedownEditor.hooks.set("insertLinkDialog", function(callback) {
 			core.insertLinkCallback = callback;
 			$(".modal input[type=text]").val("");
-			classie.toggle( $('.hideModalDialog')[0], 'showModalDialog' );
-			// $(".modal-insert-link").modal();
-
+			classie.add( $('.modal-insert-link')[0], 'showModalDialog' );
 			return true;
 		});
 		// Custom insert image dialog
 		pagedownEditor.hooks.set("insertImageDialog", function(callback) {
 			core.insertLinkCallback = callback;
 			$(".modal input[type=text]").val("");
-			classie.toggle( $('.hideModalDialog')[0], 'showModalDialog' );
-			// $(".modal-insert-image").modal();
+			classie.add( $('.modal-insert-image')[0], 'showModalDialog' );
 			return true;
 		});
 
@@ -914,6 +911,7 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 				core.insertLinkCallback(value);
 				core.insertLinkCallback = undefined;
 			}
+			classie.remove( $('.modal-insert-link')[0], 'showModalDialog' );
 		});
 		$(".action-insert-image").click(function(e) {
 			var value = $("#input-insert-image").val();
@@ -921,6 +919,7 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 				core.insertLinkCallback(value);
 				core.insertLinkCallback = undefined;
 			}
+			classie.remove( $('.modal-insert-image')[0], 'showModalDialog' );
 		});
 
 		// Hide events on "insert link" and "insert image" dialogs
@@ -940,17 +939,23 @@ $.fn.moratab = function (defaultContent, editorOptions) {
 		'<pre id="wmd-input"><div class="editor-content" contenteditable=true></div></pre>'
 	);
 	$(document.body).append(
-		'<div class="modal fade modal-insert-link modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
+		'<div dir="rtl" class="modal fade modal-insert-link modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
 		'<div class="modal-body"><p>آدرس پیوند را اینجا بنویسید:</p><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span><input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder="http://example.com/" /></div></div>'+
-		'<div class="modal-footer"><a href="#" class="btn btn-default" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-link"data-dismiss="modal">تایید</a></div>'+
+		'<div class="modal-footer"><a href="#" class="btn btn-default closeDialog" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-link"data-dismiss="modal">تایید</a></div>'+
 		'</div></div></div>'
 	);
 	$(document.body).append(
-		'<div id="imageModal" class="modal fade modal-insert-image modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
+		'<div dir="rtl" id="imageModal" class="modal fade modal-insert-image modalDialog hideModalDialog"><div class="modal-dialog"><div class="modal-content">'+
 		'<div class="modal-body"><p>تصویر را در سایت دیگری آپلود کنید و آدرس آن را بنویسید:</p><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span><input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder="http://example.com/image.jpg" /></div></div>'+
-		'<div class="modal-footer"><a href="http://dropbox.com" target="_blank" class="btn btn-link pull-left">سایتی برای آپلود تصویر</a><a href="#" class="btn btn-default" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">تایید</a></div>'+
+		'<div class="modal-footer"><a href="http://dropbox.com" target="_blank" class="btn btn-link pull-left">سایتی برای آپلود تصویر</a><a href="#" class="btn btn-default closeDialog" data-dismiss="modal">لغو</a> <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">تایید</a></div>'+
 		'</div></div></div>'
 	);
+
+	$( ".closeDialog" ).click(function() {
+		classie.remove( $('.showModalDialog')[0], 'showModalDialog' );
+		core.insertLinkCallback(null);
+		core.insertLinkCallback = undefined;
+	});
 
 	editor.init();
 	core.initEditor();
